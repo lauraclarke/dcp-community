@@ -37,7 +37,7 @@ provide JMESPath filterable, chronological, event replay.
 ## Detailed Design
 
 The DSS will provide new API endpoints:
-  1. GET /events, accepting `replica`, and `start-date`. This will return a paged listing of signed urls of s3 objects
+  1. GET /events, accepting `replica`, and `start-date`. This will return a paged listing of signed urls of storage objects
      containing event journals.
   1. GET /event, accepting `replica`, `start-date`, `bundle-uuid`, and `bundle-version`. This will return the JSON
      document produced during the bundle event.
@@ -45,7 +45,7 @@ The DSS will provide new API endpoints:
 The event data for a single event will be the JSON metadata document currently produced for the DSS
 JMESPath event subscription service.
 
-Due to the (currently unbounded) size of the JSON metadata document, new events will be stored directly on s3 as single
-objects. An offline daemon will compile events into journals as needed.
+Due to the (currently unbounded) size of the JSON metadata document, new events will be stored directly on object storage
+as single objects. An offline daemon will compile events into journals as needed.
 
 ### Unresolved Questions
